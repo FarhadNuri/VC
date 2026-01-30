@@ -21,17 +21,28 @@ class VoiceRoomApp {
     
     this.iceServers = {
       iceServers: [
-        { urls: 'stun:stun.l.google.com:19302' },
-        { urls: 'stun:stun1.l.google.com:19302' },
         {
-          urls: 'turn:free.expressturn.com:3478',
-          username: '00000002085149798',
-          credential: '+jLH6DGqs/juA2bvdMrhSnebwcI='
+          urls: 'stun:stun.relay.metered.ca:80'
         },
         {
-          urls: 'turn:free.expressturn.com:3478?transport=tcp',
-          username: '00000002085149798',
-          credential: '+jLH6DGqs/juA2bvdMrhSnebwcI='
+          urls: 'turn:asia-west.relay.metered.ca:80',
+          username: 'e5f418bc8a0b531dea77fd1f',
+          credential: 'zZ7iu39ydYAWToJq'
+        },
+        {
+          urls: 'turn:asia-west.relay.metered.ca:80?transport=tcp',
+          username: 'e5f418bc8a0b531dea77fd1f',
+          credential: 'zZ7iu39ydYAWToJq'
+        },
+        {
+          urls: 'turn:asia-west.relay.metered.ca:443',
+          username: 'e5f418bc8a0b531dea77fd1f',
+          credential: 'zZ7iu39ydYAWToJq'
+        },
+        {
+          urls: 'turns:asia-west.relay.metered.ca:443?transport=tcp',
+          username: 'e5f418bc8a0b531dea77fd1f',
+          credential: 'zZ7iu39ydYAWToJq'
         }
       ],
       iceCandidatePoolSize: 10
