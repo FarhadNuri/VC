@@ -23,22 +23,29 @@ class VoiceRoomApp {
       iceServers: [
         { urls: 'stun:stun.l.google.com:19302' },
         { urls: 'stun:stun1.l.google.com:19302' },
+        { urls: 'stun:stun.relay.metered.ca:80' },
         {
-          urls: 'turn:openrelay.metered.ca:80',
-          username: 'openrelayproject',
-          credential: 'openrelayproject'
+          urls: 'turn:global.relay.metered.ca:80',
+          username: 'e8dd65b92f6a5f24b6c7c895',
+          credential: 'zLGpLfLnRxOVbhvU'
         },
         {
-          urls: 'turn:openrelay.metered.ca:443',
-          username: 'openrelayproject',
-          credential: 'openrelayproject'
+          urls: 'turn:global.relay.metered.ca:80?transport=tcp',
+          username: 'e8dd65b92f6a5f24b6c7c895',
+          credential: 'zLGpLfLnRxOVbhvU'
         },
         {
-          urls: 'turn:openrelay.metered.ca:443?transport=tcp',
-          username: 'openrelayproject',
-          credential: 'openrelayproject'
+          urls: 'turn:global.relay.metered.ca:443',
+          username: 'e8dd65b92f6a5f24b6c7c895',
+          credential: 'zLGpLfLnRxOVbhvU'
+        },
+        {
+          urls: 'turns:global.relay.metered.ca:443?transport=tcp',
+          username: 'e8dd65b92f6a5f24b6c7c895',
+          credential: 'zLGpLfLnRxOVbhvU'
         }
-      ]
+      ],
+      iceCandidatePoolSize: 10
     };
     
     this.handleCreateOrJoin = this.handleCreateOrJoin.bind(this);
@@ -368,6 +375,18 @@ class VoiceRoomApp {
       if (pc.connectionState === 'failed' || pc.connectionState === 'disconnected') {
         this.removePeerConnection(socketId);
       }
+    };
+    
+    pc.oniceconnectionstatechange = () => {
+      console.log(`ICE connection state with ${socketId}: ${pc.iceConnectionState}`);
+    };
+    
+    pc.onicegatheringstatechange = () => {
+      console.log(`ICE gathering state: ${pc.iceGatheringState}`);
+    };
+    
+    pc.onicecandidateerror = (event) => {
+      console.error(`ICE candidate error: ${event.errorCode} - ${event.errorText}`);
     };
     
     if (isInitiator) {
