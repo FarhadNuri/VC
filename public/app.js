@@ -23,26 +23,15 @@ class VoiceRoomApp {
       iceServers: [
         { urls: 'stun:stun.l.google.com:19302' },
         { urls: 'stun:stun1.l.google.com:19302' },
-        { urls: 'stun:stun.relay.metered.ca:80' },
         {
-          urls: 'turn:global.relay.metered.ca:80',
-          username: 'e8dd65b92f6a5f24b6c7c895',
-          credential: 'zLGpLfLnRxOVbhvU'
+          urls: 'turn:free.expressturn.com:3478',
+          username: '00000002085149798',
+          credential: '+jLH6DGqs/juA2bvdMrhSnebwcI='
         },
         {
-          urls: 'turn:global.relay.metered.ca:80?transport=tcp',
-          username: 'e8dd65b92f6a5f24b6c7c895',
-          credential: 'zLGpLfLnRxOVbhvU'
-        },
-        {
-          urls: 'turn:global.relay.metered.ca:443',
-          username: 'e8dd65b92f6a5f24b6c7c895',
-          credential: 'zLGpLfLnRxOVbhvU'
-        },
-        {
-          urls: 'turns:global.relay.metered.ca:443?transport=tcp',
-          username: 'e8dd65b92f6a5f24b6c7c895',
-          credential: 'zLGpLfLnRxOVbhvU'
+          urls: 'turn:free.expressturn.com:3478?transport=tcp',
+          username: '00000002085149798',
+          credential: '+jLH6DGqs/juA2bvdMrhSnebwcI='
         }
       ],
       iceCandidatePoolSize: 10
